@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Row from "./components/row";
+import Banner from "./components/banner";
+import Navbar from "./components/navbar";
+import requests from "./request";
+import "./App.css"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Navbar/>
+        <Banner/>
+        <Row title="Trending Now" fetchUrl={requests.fetchTrending} isLargeRow/>
+        <Row title="Series" fetchUrl={requests.fetchSeries}/>
+        <Row title="Top Rated" fetchUrl={requests.fetchTopRated}/>
+        <Row title="Currently Airing" fetchUrl={requests.fetchAiringSeries}/>
     </div>
   );
 }
